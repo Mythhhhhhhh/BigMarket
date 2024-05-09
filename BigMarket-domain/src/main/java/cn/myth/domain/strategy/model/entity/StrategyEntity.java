@@ -6,6 +6,8 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
 import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Stream;
 
 /**
  * 策略实体
@@ -27,11 +29,12 @@ public class StrategyEntity {
     }
 
     public String getRuleWeight() {
-        String[] ruleModels = ruleModels();
-        Optional<String> result = Arrays.stream(ruleModels)
+        return Optional.ofNullable(ruleModels())
+                .map(Arrays::stream)
+                .orElseGet(Stream::empty)
                 .filter("rule_weight"::equals)
-                .findFirst();
-        return result.orElse(null);
+                .findFirst()
+                .orElse(null);
     }
 
 }

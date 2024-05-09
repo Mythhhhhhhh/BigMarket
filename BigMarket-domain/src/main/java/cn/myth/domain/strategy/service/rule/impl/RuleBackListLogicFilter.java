@@ -15,10 +15,13 @@ import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.Optional;
 
+/**
+ * 【抽奖前规则】黑名单用户过滤规则
+ */
 @Slf4j
 @Component
 @LogicStrategy(logicMode = DefaultLogicFactory.LogicModel.RULE_BLACKLIST)
-public class RuleBackListLogicFilter implements ILogicFilter {
+public class RuleBackListLogicFilter implements ILogicFilter<RuleActionEntity.RaffleBeforeEntity> {
 
     @Resource
     private IStrategyRepository repository;

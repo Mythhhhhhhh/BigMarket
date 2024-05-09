@@ -17,10 +17,13 @@ import javax.annotation.Resource;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * 根据抽奖权重返回可抽奖范围KEY
+ */
 @Slf4j
 @Component
 @LogicStrategy(logicMode = DefaultLogicFactory.LogicModel.RULE_WIGHT)
-public class RuleWeightLogicFilter implements ILogicFilter {
+public class RuleWeightLogicFilter implements ILogicFilter<RuleActionEntity.RaffleBeforeEntity> {
 
     @Resource
     private IStrategyRepository repository;

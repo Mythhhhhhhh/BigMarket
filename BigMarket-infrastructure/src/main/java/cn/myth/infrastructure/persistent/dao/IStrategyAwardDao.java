@@ -1,5 +1,6 @@
 package cn.myth.infrastructure.persistent.dao;
 
+import cn.myth.domain.strategy.model.vo.StrategyAwardRuleModelVO;
 import cn.myth.infrastructure.persistent.po.StrategyAward;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -15,4 +16,5 @@ public interface IStrategyAwardDao {
 
     List<StrategyAward> queryStrategyAwardListByStrategyId(Long strategyId);
 
+    String queryStrategyAwardRuleModels(StrategyAward strategyAward);
 }
