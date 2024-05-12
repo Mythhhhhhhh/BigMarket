@@ -1,4 +1,4 @@
-package cn.myth.domain.strategy.service.raffle;
+package cn.myth.domain.strategy.service;
 
 import cn.myth.domain.strategy.model.entity.RaffleAwardEntity;
 import cn.myth.domain.strategy.model.entity.RaffleFactorEntity;
@@ -6,7 +6,6 @@ import cn.myth.domain.strategy.model.entity.RuleActionEntity;
 import cn.myth.domain.strategy.model.vo.RuleLogicCheckTypeVO;
 import cn.myth.domain.strategy.model.vo.StrategyAwardRuleModelVO;
 import cn.myth.domain.strategy.repository.IStrategyRepository;
-import cn.myth.domain.strategy.service.IRaffleStrategy;
 import cn.myth.domain.strategy.service.armory.IStrategyDispatch;
 import cn.myth.domain.strategy.service.rule.chain.ILogicChain;
 import cn.myth.domain.strategy.service.rule.chain.factory.DefaultChainFactory;
@@ -68,9 +67,6 @@ public abstract class AbstractRaffleStrategy implements IRaffleStrategy {
         return new RaffleAwardEntity()
                 .awardId(awardId);
     }
-
-    protected abstract RuleActionEntity<RuleActionEntity.RaffleBeforeEntity> doCheckRaffleBeforeLogic
-            (RaffleFactorEntity raffleFactorEntity, String... logics);
 
     protected abstract RuleActionEntity<RuleActionEntity.RaffleCenterEntity> doCheckRaffleCenterLogic
             (RaffleFactorEntity raffleFactorEntity, String... logics);
