@@ -5,6 +5,7 @@ import cn.myth.domain.strategy.model.entity.StrategyEntity;
 import cn.myth.domain.strategy.model.entity.StrategyRuleEntity;
 import cn.myth.domain.strategy.model.vo.RuleTreeVO;
 import cn.myth.domain.strategy.model.vo.StrategyAwardRuleModelVO;
+import cn.myth.domain.strategy.model.vo.StrategyAwardStockKeyVO;
 
 import java.util.List;
 import java.util.Map;
@@ -41,4 +42,40 @@ public interface IStrategyRepository {
      * @return 树结构信息
      */
     RuleTreeVO queryRuleTreeVOByTreeId(String treeId);
+
+    /**
+     * 缓存奖品库存
+     *
+     * @param cacheKey   key
+     * @param awardCount 库存值
+     */
+    void cacheStrategyAwardCount(String cacheKey, Integer awardCount);
+
+    /**
+     * 缓存key，decr 方式扣减库存
+     *
+     * @param cacheKey 缓存Key
+     * @return 扣减结果
+     */
+    Boolean subtractionAwardStock(String cacheKey);
+
+    /**
+     * 写入奖品库存消费队列
+     *
+     * @param strategyAwardStockKeyVO 对象值对象
+     */
+    void awardStockConsumeSendQueue(StrategyAwardStockKeyVO strategyAwardStockKeyVO);
+
+    /**
+     * 获取奖品库存消费队列
+     */
+    StrategyAwardStockKeyVO takeQueueValue() throws InterruptedException;
+
+    /**
+     * 更新奖品库存消耗
+     *
+     * @param strategyId 策略ID
+     * @param awardId 奖品ID
+     */
+    void updateStrategyAwardStock(Long strategyId, Integer awardId);
 }
