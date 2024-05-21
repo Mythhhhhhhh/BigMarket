@@ -63,8 +63,7 @@ public class DecisionTreeEngine implements IDecisionTreeEngine {
                 .filter(nodeLine -> decisionLogic(matterValue, nodeLine))
                 .findFirst();
 
-        return matchedNodeLine.map(RuleTreeNodeLineVO::getRuleNodeTo)
-                .orElseThrow(() -> new RuntimeException("决策树引擎，nextNode 计算失败，未找到可执行节点：" + matterValue));
+        return matchedNodeLine.map(RuleTreeNodeLineVO::getRuleNodeTo).orElse(null);
     }
 
 
