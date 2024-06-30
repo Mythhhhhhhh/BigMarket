@@ -26,10 +26,11 @@ chmod +x build.sh
 cd /dev-ops/github/
 git clone https://github.com/Mythhhhhhhh/BigMarket-front.git
 
+cd BigMarket-front
+
 git checkout -b 04-dev-ops-tag-raffle
 240217-xfg-dev-ops-tag-raffle
 
-cd big-market-front
 
 chmod +x build.sh
 
