@@ -1,4 +1,4 @@
-package cn.myth.test.domain;
+package cn.myth.test.domain.strategy;
 
 import cn.myth.domain.strategy.model.vo.*;
 import cn.myth.domain.strategy.service.rule.tree.factory.DefaultTreeFactory;
