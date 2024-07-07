@@ -1,9 +1,7 @@
 package cn.myth.test.domain.activity;
 
-import cn.myth.domain.activity.model.entity.ActivityOrderEntity;
-import cn.myth.domain.activity.model.entity.ActivityShopCartEntity;
+import cn.myth.domain.activity.model.entity.SkuRechargeEntity;
 import cn.myth.domain.activity.service.IRaffleOrder;
-import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,11 +23,13 @@ public class RaffleOrderTest {
 
     @Test
     public void test_createRaffleActivityOrder() {
-        ActivityShopCartEntity activityShopCartEntity = new ActivityShopCartEntity();
-        activityShopCartEntity.setUserId("myth");
-        activityShopCartEntity.setSku(9011L);
-        ActivityOrderEntity raffleActivityOrder = raffleOrder.createRaffleActivityOrder(activityShopCartEntity);
-        log.info("测试结果：{}", JSON.toJSONString(raffleActivityOrder));
+        SkuRechargeEntity skuRechargeEntity = new SkuRechargeEntity();
+        skuRechargeEntity.setUserId("xiaofuge");
+        skuRechargeEntity.setSku(9011L);
+        // outBusinessNo 作为幂等仿重使用，同一个业务单号2次使用会抛出索引冲突 Duplicate entry '700091009111' for key 'uq_out_business_no' 确保唯一性。
+        skuRechargeEntity.setOutBusinessNo("700091009111");
+        String orderId = raffleOrder.createSkuRechargeOrder(skuRechargeEntity);
+        log.info("测试结果：{}", orderId);
     }
 
 }

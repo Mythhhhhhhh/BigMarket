@@ -1,5 +1,6 @@
 package cn.myth.domain.activity.repository;
 
+import cn.myth.domain.activity.model.aggregate.CreateOrderAggregate;
 import cn.myth.domain.activity.model.entity.ActivityCountEntity;
 import cn.myth.domain.activity.model.entity.ActivityEntity;
 import cn.myth.domain.activity.model.entity.ActivitySkuEntity;
@@ -14,5 +15,7 @@ public interface IActivityRepository {
     ActivityEntity queryRaffleActivityByActivityId(Long activityId);
 
     ActivityCountEntity queryRaffleActivityCountByActivityCountId(Long activityCountId);
+
+    void doSaveOrder(CreateOrderAggregate createOrderAggregate);
 
 }
