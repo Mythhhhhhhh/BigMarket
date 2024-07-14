@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * 活动账户实体对象
+ * 活动账户（总）实体对象
  */
 @Data
 @Builder

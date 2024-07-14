@@ -1,4 +1,4 @@
-package cn.myth.domain.activity.service.rule;
+package cn.myth.domain.activity.service.quota.rule;
 
 public interface IActionChainArmory {
 

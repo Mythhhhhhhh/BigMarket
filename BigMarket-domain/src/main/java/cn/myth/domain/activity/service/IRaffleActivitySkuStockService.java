@@ -5,7 +5,7 @@ import cn.myth.domain.activity.model.vo.ActivitySkuStockKeyVO;
 /**
  * 活动sku库存处理接口
  */
-public interface ISkuStock {
+public interface IRaffleActivitySkuStockService {
 
     /**
      * 获取活动sku库存消耗队列
