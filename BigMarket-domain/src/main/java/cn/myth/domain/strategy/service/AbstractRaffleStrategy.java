@@ -60,6 +60,7 @@ public abstract class AbstractRaffleStrategy implements IRaffleStrategy {
         StrategyAwardEntity strategyAward = repository.queryStrategyAwardEntity(strategyId, awardId);
         return new RaffleAwardEntity()
                 .awardId(awardId)
+                .awardTitle(strategyAward.awardTitle())
                 .awardConfig(awardConfig)
                 .sort(strategyAward.sort());
     }

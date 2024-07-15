@@ -2,8 +2,8 @@ package cn.myth.trigger.api;
 
 import cn.myth.trigger.api.dto.RaffleAwardListRequestDTO;
 import cn.myth.trigger.api.dto.RaffleAwardListResponseDTO;
-import cn.myth.trigger.api.dto.RaffleRequestDTO;
-import cn.myth.trigger.api.dto.RaffleResponseDTO;
+import cn.myth.trigger.api.dto.RaffleStrategyRequestDTO;
+import cn.myth.trigger.api.dto.RaffleStrategyResponseDTO;
 import cn.myth.types.model.Response;
 
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * 抽奖服务接口
  */
-public interface IRaffleService {
+public interface IRaffleStrategyService {
 
     /**
      * 策略装配接口
@@ -35,5 +35,5 @@ public interface IRaffleService {
      * @param requestDTO 请求参数
      * @return 抽奖结果
      */
-    Response<RaffleResponseDTO> randomRaffle(RaffleRequestDTO requestDTO);
+    Response<RaffleStrategyResponseDTO> randomRaffle(RaffleStrategyRequestDTO requestDTO);
 }
