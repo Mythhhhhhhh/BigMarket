@@ -3,6 +3,8 @@ package cn.myth.domain.strategy.model.entity;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
+import java.util.Date;
+
 /**
  * 抽奖因子实体
  */
@@ -14,6 +16,7 @@ public class RaffleFactorEntity {
     private String userId;
     /** 策略ID */
     private Long strategyId;
-    /** 排序 */
-    private Integer sort;
+    /** 结束时间 */
+    private Date endDateTime;
+
 }

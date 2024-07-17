@@ -89,13 +89,13 @@ public class RaffleActivityController implements IRaffleActivityService {
      * <p>
      * 接口：<a href="http://localhost:8091/api/v1/raffle/activity/draw">/api/v1/raffle/activity/draw</a>
      * 入参：{"activityId":100001,"userId":"xiaofuge"}
-     *
+     * <p>
      * curl --request POST \
-     *   --url http://localhost:8091/api/v1/raffle/activity/draw \
-     *   --header 'content-type: application/json' \
-     *   --data '{
-     *     "userId":"xiaofuge",
-     *     "activityId": 100301
+     * --url http://localhost:8091/api/v1/raffle/activity/draw \
+     * --header 'content-type: application/json' \
+     * --data '{
+     * "userId":"xiaofuge",
+     * "activityId": 100301
      * }'
      */
     @RequestMapping(value = "draw", method = RequestMethod.POST)
@@ -113,6 +113,7 @@ public class RaffleActivityController implements IRaffleActivityService {
             // 3. 抽奖策略 - 执行抽奖
             RaffleAwardEntity raffleAwardEntity = raffleStrategy.performRaffle(new RaffleFactorEntity()
                     .userId(orderEntity.getUserId())
+                    .endDateTime(orderEntity.getEndDateTime())
                     .strategyId(orderEntity.getStrategyId()));
             // 4. 存放结果 - 写入中奖记录
             UserAwardRecordEntity userAwardRecord = UserAwardRecordEntity.builder()
