@@ -15,7 +15,7 @@ import java.util.Arrays;
  */
 @Slf4j
 @Component("rule_blacklist")
-public class BackListLogicChain extends AbstractLogicChain {
+public class BlackListLogicChain extends AbstractLogicChain {
 
     @Resource
     private IStrategyRepository repository;
