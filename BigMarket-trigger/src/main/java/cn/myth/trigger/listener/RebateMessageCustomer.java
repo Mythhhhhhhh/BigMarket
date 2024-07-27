@@ -1,6 +1,7 @@
 package cn.myth.trigger.listener;
 
 import cn.myth.domain.activity.model.entity.SkuRechargeEntity;
+import cn.myth.domain.activity.model.vo.OrderTradeTypeVO;
 import cn.myth.domain.activity.service.IRaffleActivityAccountQuotaService;
 import cn.myth.domain.credit.model.entity.TradeEntity;
 import cn.myth.domain.credit.model.vo.TradeNameVO;
@@ -51,6 +52,7 @@ public class RebateMessageCustomer {
                     skuRechargeEntity.setUserId(rebateMessage.getUserId());
                     skuRechargeEntity.setSku(Long.valueOf(rebateMessage.getRebateConfig()));
                     skuRechargeEntity.setOutBusinessNo(rebateMessage.getBizId());
+                    skuRechargeEntity.setOrderTradeType(OrderTradeTypeVO.rebate_no_pay_trade);
                     raffleActivityAccountQuotaService.createOrder(skuRechargeEntity);
                     break;
                 case "integral":

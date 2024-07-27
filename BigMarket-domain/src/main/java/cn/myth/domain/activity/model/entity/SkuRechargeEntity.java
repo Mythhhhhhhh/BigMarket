@@ -1,5 +1,6 @@
 package cn.myth.domain.activity.model.entity;
 
+import cn.myth.domain.activity.model.vo.OrderTradeTypeVO;
 import lombok.Data;
 
 /**
@@ -14,5 +15,7 @@ public class SkuRechargeEntity {
     private Long sku;
     /** 幂等业务单号，外部谁充值谁透传，这样来保证幂等（多次调用也能确保结果唯一，不会多次充值）。 */
     private String outBusinessNo;
+    /** 用户ID */
+    private OrderTradeTypeVO orderTradeType = OrderTradeTypeVO.rebate_no_pay_trade;
 
 }
