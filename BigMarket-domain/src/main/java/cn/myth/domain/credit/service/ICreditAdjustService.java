@@ -1,5 +1,6 @@
 package cn.myth.domain.credit.service;
 
+import cn.myth.domain.credit.model.entity.CreditAccountEntity;
 import cn.myth.domain.credit.model.entity.TradeEntity;
 
 /**
@@ -14,4 +15,9 @@ public interface ICreditAdjustService {
      */
     String createOrder(TradeEntity tradeEntity);
 
-}
+    /**
+     * 查询用户积分账户
+     * @param userId 用户ID
+     * @return 积分账户实体
+     */
+    CreditAccountEntity queryUserCreditAccount(String userId);}

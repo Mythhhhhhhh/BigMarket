@@ -1,12 +1,18 @@
 package cn.myth.domain.activity.model.entity;
 
 import cn.myth.domain.activity.model.vo.OrderTradeTypeVO;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 活动商品充值实体对象
  */
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class SkuRechargeEntity {
 
     /** 用户ID */
