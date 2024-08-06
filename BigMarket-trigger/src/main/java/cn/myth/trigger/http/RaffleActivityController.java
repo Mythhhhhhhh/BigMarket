@@ -301,6 +301,7 @@ public class RaffleActivityController implements IRaffleActivityService {
         }
     }
 
+    @RequestMapping(value = "query_sku_product_list_by_activity_id", method = RequestMethod.POST)
     @Override
     public Response<List<SkuProductResponseDTO>> querySkuProductListByActivityId(Long activityId) {
         try {
@@ -345,6 +346,7 @@ public class RaffleActivityController implements IRaffleActivityService {
         }
     }
 
+    @RequestMapping(value = "query_user_credit_account", method = RequestMethod.POST)
     @Override
     public Response<BigDecimal> queryUserCreditAccount(String userId) {
         try {
@@ -365,6 +367,7 @@ public class RaffleActivityController implements IRaffleActivityService {
         }
     }
 
+    @RequestMapping(value = "credit_pay_exchange_sku", method = RequestMethod.POST)
     @Override
     public Response<Boolean> creditPayExchangeSku(SkuProductShopCartRequestDTO request) {
         try {
@@ -393,7 +396,13 @@ public class RaffleActivityController implements IRaffleActivityService {
                     .info(ResponseCode.SUCCESS.getInfo())
                     .data(true)
                     .build();
-        } catch (Exception e) {
+        }catch (AppException e) {
+            log.error("积分兑换商品失败 userId:{} activityId:{}",  request.getUserId(), request.getSku(), e);
+            return Response.<Boolean>builder()
+                    .code(e.getCode())
+                    .info(e.getInfo())
+                    .build();
+        }  catch (Exception e) {
             log.error("积分兑换商品失败 userId:{} sku:{}", request.getUserId(), request.getSku(), e);
             return Response.<Boolean>builder()
                     .code(ResponseCode.UN_ERROR.getCode())

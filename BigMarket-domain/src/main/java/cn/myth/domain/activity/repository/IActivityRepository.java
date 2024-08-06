@@ -5,6 +5,7 @@ import cn.myth.domain.activity.model.aggregate.CreatePartakeOrderAggregate;
 import cn.myth.domain.activity.model.entity.*;
 import cn.myth.domain.activity.model.vo.ActivitySkuStockKeyVO;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -60,4 +61,7 @@ public interface IActivityRepository {
     UnpaidActivityOrderEntity queryUnpaidActivityOrder(SkuRechargeEntity skuRechargeEntity);
 
     List<SkuProductEntity> querySkuProductEntityListByActivityId(Long activityId);
+
+    BigDecimal queryUserCreditAccountAmount(String userId);
+
 }
